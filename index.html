@@ -1,18 +1,2156 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./FAVICON NEGRO.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOXA Ads | Red Global de Monetización Publicitaria & Programmatic RTB</title>
-    <meta name="description" content="Plataforma de publicidad digital de alto rendimiento inspirada en AdSelect. Maximiza tus eCPMs con Header Bidding de IA, 100% Fill Rate y tráfico libre de fraude para Editores y Anunciantes." />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#070a12] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black overflow-x-hidden">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>NOXA | Briefing Estratégico, Benchmark & Plan D2C</title>
+  <link rel="icon" type="image/png" href="FAVICON NEGRO.png">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Reveal.js Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css" id="theme">
+
+  <style>
+    /* ==========================================================================
+       NOXA MINIMALIST WHITE & BRAND COLOR DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      --bg-body: #ffffff;
+      --bg-surface: #f8fafc;
+      --bg-surface-subtle: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-card-hover: #ffffff;
+      --border-light: #e2e8f0;
+      --border-subtle: #edf2f7;
+      --border-dark: #0f172a;
+      
+      /* Brand Core Neutrals */
+      --brand-black: #090a0c;
+      --brand-charcoal: #1e293b;
+      --text-primary: #090a0c;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      
+      /* NOXA 4 Garment Colors */
+      --garment-negro: #111111;
+      --garment-gris: #64748b;
+      --garment-marino: #1e293b;
+      --garment-blanca: #ffffff;
+
+      /* Elegant Accents */
+      --brand-gold: #b38e44;
+      --brand-gold-subtle: #fdf8ef;
+      --brand-olive: #4f6345;
+      --brand-olive-subtle: #f3f6f1;
+
+      --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-clean: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+      --shadow-hover: 0 14px 30px -4px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reveal {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background-color: var(--bg-body);
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 40px 50px;
+      height: 100%;
+      box-sizing: border-box;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--brand-charcoal) #f1f5f9;
+    }
+
+    .reveal .slides section::-webkit-scrollbar {
+      width: 5px;
+    }
+    .reveal .slides section::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Headings */
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      font-family: var(--font-heading);
+      color: var(--brand-black);
+      text-transform: none;
+      letter-spacing: -0.025em;
+      margin: 0 0 12px 0;
+      line-height: 1.18;
+    }
+
+    .reveal h1 { font-weight: 800; font-size: 2.8rem; }
+    .reveal h2 { font-weight: 700; font-size: 2.1rem; }
+    .reveal h3 { font-weight: 700; font-size: 1.4rem; }
+    .reveal h4 { font-weight: 600; font-size: 1.15rem; }
+    
+    .reveal p, .reveal li {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+    .reveal strong {
+      color: var(--brand-black);
+      font-weight: 700;
+    }
+
+    /* Minimalist Top App Bar */
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 100;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .header-logo img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .header-logo span.brand-title {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      color: var(--brand-black);
+    }
+
+    .header-logo span.brand-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: #000;
+      color: #fff;
+      padding: 3px 9px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .nav-btn:hover {
+      background: #ffffff;
+      color: var(--brand-black);
+      border-color: #94a3b8;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-btn.primary {
+      background: var(--brand-black);
+      color: #ffffff;
+      border-color: var(--brand-black);
+    }
+    .nav-btn.primary:hover {
+      background: #27272a;
+      color: #ffffff;
+    }
+
+    /* Fixed Bottom Footer */
+    .app-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-light);
+      z-index: 100;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .key-badge {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--brand-black);
+      font-weight: 700;
+    }
+
+    /* Section Headers */
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #000;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .slide-badge.subtle {
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--brand-charcoal);
+    }
+
+    .slide-title-wrap {
+      margin-bottom: 24px;
+    }
+
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 920px;
+      line-height: 1.5;
+    }
+
+    /* Layout Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .grid-1-2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+    }
+
+    .grid-2-1 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    /* Minimalist Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-clean);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card.highlight-dark {
+      background: var(--brand-black);
+      border-color: var(--brand-black);
+      color: #ffffff;
+    }
+    .card.highlight-dark h3, .card.highlight-dark h4, .card.highlight-dark p, .card.highlight-dark li {
+      color: #e2e8f0;
+    }
+    .card.highlight-dark strong {
+      color: #ffffff;
+    }
+
+    .card.highlight-subtle {
+      background: var(--bg-surface);
+      border-color: var(--border-light);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      background: var(--brand-black);
+      color: #fff;
+    }
+    .card-icon.outline {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      color: var(--brand-black);
+    }
+
+    /* Stat Box */
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--brand-black);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* Garment Color Swatches */
+    .color-swatches-wrap {
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      padding: 6px 14px 6px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brand-charcoal);
+    }
+
+    .swatch-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.12);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .swatch-negro { background-color: var(--garment-negro); }
+    .swatch-gris { background-color: var(--garment-gris); }
+    .swatch-marino { background-color: var(--garment-marino); }
+    .swatch-blanca { background-color: var(--garment-blanca); border: 2px solid #cbd5e1; }
+
+    /* Competitor Social Buttons & Badges */
+    .competitor-socials {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .social-btn.ig {
+      background: #fdf2f8;
+      color: #be185d;
+      border-color: #fbcfe8;
+    }
+    .social-btn.ig:hover {
+      background: #be185d;
+      color: #ffffff;
+    }
+
+    .social-btn.tk {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+    .social-btn.tk:hover {
+      background: #27272a;
+      color: #ffffff;
+    }
+
+    .social-btn.web {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+    .social-btn.web:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+    }
+
+    /* Interactive Pills */
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .pill-black { background: #000; color: #fff; }
+    .pill-gray { background: var(--bg-surface-subtle); color: var(--brand-charcoal); border: 1px solid var(--border-light); }
+    .pill-marino { background: #1e293b; color: #fff; }
+    .pill-gold { background: var(--brand-gold-subtle); color: #855e1a; border: 1px solid #fed7aa; }
+
+    /* Comparison Box */
+    .versus-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .versus-col {
+      padding: 22px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+
+    .versus-col.pain {
+      background: #fff5f5;
+      border-color: #fed7d7;
+    }
+
+    .versus-col.solution {
+      background: #f8fafc;
+      border-color: #0f172a;
+    }
+
+    /* Calendar Grid */
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .month-day-head {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--brand-black);
+      text-align: center;
+      padding: 6px;
+      text-transform: uppercase;
+      background: var(--bg-surface);
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+    }
+
+    .month-day-cell {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 8px;
+      min-height: 85px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      transition: all 0.2s ease;
+    }
+
+    .month-day-cell:hover {
+      border-color: var(--brand-black);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transform: scale(1.02);
+      z-index: 2;
+    }
+
+    .month-day-cell .day-num {
+      font-weight: 800;
+      color: var(--brand-black);
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    /* Table */
+    .calendar-wrapper {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+
+    .calendar-table th {
+      background: var(--bg-surface);
+      color: var(--brand-black);
+      padding: 10px 14px;
+      font-weight: 800;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .calendar-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    .calendar-table tr:hover td {
+      background: var(--bg-surface);
+      color: var(--brand-black);
+    }
+
+    /* Copy box */
+    .copy-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--brand-black);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--brand-charcoal);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .copy-block .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      color: var(--brand-black);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-block .copy-btn:hover {
+      background: var(--brand-black);
+      color: #fff;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .filter-chip.active, .filter-chip:hover {
+      background: var(--brand-black);
+      color: #fff;
+      border-color: var(--brand-black);
+    }
+
+    /* Video player box */
+    .video-box {
+      background: #000;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-clean);
+    }
+
+    .video-box video {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      background: #000;
+      display: block;
+    }
+
+    /* Hero Slide */
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 40px;
+      align-items: center;
+      min-height: calc(100vh - 170px);
+    }
+
+    .hero-brand-mark {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 18px;
+    }
+
+    /* Quick jump modal */
+    .jump-menu {
+      position: fixed;
+      top: 70px;
+      right: 32px;
+      width: 330px;
+      max-height: 520px;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      z-index: 1000;
+      padding: 14px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .jump-menu.open {
+      display: block;
+      animation: fadeIn 0.15s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .jump-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .jump-item:hover {
+      background: var(--bg-surface);
+      color: var(--brand-black);
+      font-weight: 600;
+    }
+
+    .jump-item .jump-num {
+      font-weight: 800;
+      color: var(--brand-black);
+      font-size: 0.75rem;
+      min-width: 24px;
+    }
+
+    /* Modal Help */
+    .help-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 440px;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      padding: 24px;
+      z-index: 2000;
+      display: none;
+    }
+
+    .help-modal.open { display: block; }
+    .help-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      display: none;
+    }
+    .help-overlay.open { display: block; }
+
+    /* Reveal Controls styling */
+    .reveal .controls {
+      bottom: 50px !important;
+      right: 25px !important;
+    }
+    .reveal .controls button {
+      color: var(--brand-black) !important;
+    }
+    .reveal .progress {
+      height: 4px !important;
+      background: var(--border-light) !important;
+    }
+    .reveal .progress span {
+      background: var(--brand-black) !important;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .grid-4, .grid-1-2, .grid-2-1, .versus-container, .hero-container {
+        grid-template-columns: 1fr !important;
+      }
+      .month-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .reveal h1 { font-size: 2rem; }
+      .reveal h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED APP HEADER -->
+  <header class="app-header">
+    <div class="header-logo" onclick="Reveal.slide(0,0)">
+      <img src="FAVICON NEGRO.png" alt="NOXA Logo">
+      <span class="brand-title">NOXA</span>
+      <span class="brand-tag">D2C Big & Tall</span>
+    </div>
+
+    <div class="header-controls">
+      <button class="nav-btn" onclick="toggleJumpMenu()" title="Índice de Secciones">
+        <i class="fa-solid fa-list-ul"></i>
+        <span>Secciones</span>
+      </button>
+
+      <button class="nav-btn" onclick="toggleHelpModal()" title="Atajos de teclado">
+        <i class="fa-solid fa-keyboard"></i>
+        <span>Atajos</span>
+      </button>
+
+      <button class="nav-btn" onclick="Reveal.toggleOverview()" title="Vista panorámica (Esc)">
+        <i class="fa-solid fa-grip"></i>
+        <span>Vista Global</span>
+      </button>
+
+      <button class="nav-btn primary" onclick="toggleFullScreen()" title="Pantalla completa (F)">
+        <i class="fa-solid fa-expand"></i>
+        <span>Completa</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- QUICK JUMP MODAL MENU -->
+  <div class="jump-menu" id="jumpMenu">
+    <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 800; margin-bottom: 8px; padding-left: 6px;">
+      Índice de Contenido
+    </div>
+    <div class="jump-item" onclick="jumpTo(0)"><span class="jump-num">01</span> Portada & Visión de Marca</div>
+    <div class="jump-item" onclick="jumpTo(1)"><span class="jump-num">02</span> Briefing Ejecutivo & Objetivos Pauta</div>
+    <div class="jump-item" onclick="jumpTo(2)"><span class="jump-num">03</span> Buyer Persona & Comprador Dual</div>
+    <div class="jump-item" onclick="jumpTo(3)"><span class="jump-num">04</span> Psicología: Creencias & Vocabulario</div>
+    <div class="jump-item" onclick="jumpTo(4)"><span class="jump-num">05</span> Frustraciones vs. Solución NOXA</div>
+    <div class="jump-item" onclick="jumpTo(5)"><span class="jump-num">06</span> Los 4 Colores & Packs Comerciales</div>
+    <div class="jump-item" onclick="jumpTo(6)"><span class="jump-num">07</span> Benchmark: 3 Competidores Clave</div>
+    <div class="jump-item" onclick="jumpTo(7)"><span class="jump-num">08</span> Benchmark Global & Canales Digitales</div>
+    <div class="jump-item" onclick="jumpTo(8)"><span class="jump-num">09</span> Síntesis: Qué Replicar y Diferenciales</div>
+    <div class="jump-item" onclick="jumpTo(9)"><span class="jump-num">10</span> 4 Pilares de Contenido (30-25-25-20)</div>
+    <div class="jump-item" onclick="jumpTo(10)"><span class="jump-num">11</span> Embudo de Pauta (Meta & TikTok Ads)</div>
+    <div class="jump-item" onclick="jumpTo(11)"><span class="jump-num">12</span> Guión Maestro AIDA para Video</div>
+    <div class="jump-item" onclick="jumpTo(12)"><span class="jump-num">13</span> Tono Varonil & Contextos Reales</div>
+    <div class="jump-item" onclick="jumpTo(13)"><span class="jump-num">14</span> Copys de Conversión Directa</div>
+    <div class="jump-item" onclick="jumpTo(14)"><span class="jump-num">15</span> Calendario Editorial - Nov 2026</div>
+    <div class="jump-item" onclick="jumpTo(15)"><span class="jump-num">16</span> Parrilla Táctica de 30 Días</div>
+    <div class="jump-item" onclick="jumpTo(16)"><span class="jump-num">17</span> Galería de Campaña & Video IA</div>
+    <div class="jump-item" onclick="jumpTo(17)"><span class="jump-num">18</span> Roadmap a 90 Días & Canales NOXA</div>
+  </div>
+
+  <!-- HELP MODAL -->
+  <div class="help-overlay" id="helpOverlay" onclick="toggleHelpModal()"></div>
+  <div class="help-modal" id="helpModal">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h4 style="margin:0; display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-keyboard"></i> Atajos de Navegación
+      </h4>
+      <i class="fa-solid fa-xmark" style="cursor:pointer; color:var(--text-dim);" onclick="toggleHelpModal()"></i>
+    </div>
+    <p style="font-size:0.85rem; margin-bottom:16px; color:var(--text-secondary);">Controla la presentación fácilmente con tu teclado:</p>
+    <div style="display:flex; flex-direction:column; gap:8px; font-size:0.82rem;">
+      <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-light);">
+        <span>Siguiente Diapositiva</span> <span class="key-badge">→ o Barra Espaciadora</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-light);">
+        <span>Diapositiva Anterior</span> <span class="key-badge">←</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-light);">
+        <span>Vista Panorámica (Overview)</span> <span class="key-badge">ESC o O</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-light);">
+        <span>Pantalla Completa</span> <span class="key-badge">F</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:6px 0;">
+        <span>Pausa (Pantalla en Blanco)</span> <span class="key-badge">B o .</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVEAL SLIDES CONTAINER -->
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ==========================================
+           SLIDE 1: PORTADA / HERO (MINIMALISTA BLANCO)
+           ========================================== -->
+      <section data-transition="fade">
+        <div class="hero-container">
+          <div>
+            <img src="FAVICON NEGRO.png" alt="NOXA Mark" class="hero-brand-mark">
+            <div class="slide-badge">Briefing Oficial & Benchmark D2C · Q4 2026 - Q1 2027</div>
+            <h1 style="margin-bottom: 12px; font-size: 3rem;">
+              NOXA <span style="font-weight: 300; color: #94a3b8;">|</span> MODA MASCULINA TALLAS REALES
+            </h1>
+            <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 620px; margin-bottom: 20px; line-height: 1.5;">
+              Básicos anatómicamente confeccionados de la <strong>XL a la 4XL</strong>. Dignidad, comodidad sin límites y presencia varonil sobria.
+            </p>
+
+            <!-- 4 Garment Colors Highlight -->
+            <div style="margin-bottom: 22px;">
+              <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">
+                Colores Esenciales en Catálogo:
+              </div>
+              <div class="color-swatches-wrap">
+                <div class="color-swatch-item">
+                  <div class="swatch-circle swatch-negro"></div>
+                  <span>Negro</span>
+                </div>
+                <div class="color-swatch-item">
+                  <div class="swatch-circle swatch-gris"></div>
+                  <span>Gris</span>
+                </div>
+                <div class="color-swatch-item">
+                  <div class="swatch-circle swatch-marino"></div>
+                  <span>Azul Marino</span>
+                </div>
+                <div class="color-swatch-item">
+                  <div class="swatch-circle swatch-blanca"></div>
+                  <span>Blanca</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <button class="nav-btn primary" onclick="Reveal.next()" style="padding: 10px 22px; font-size: 0.88rem;">
+                Explorar Presentación <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Navega con las flechas [←] [→]</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="card" style="padding: 16px; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
+              <img src="IMG1-M-08-09-NOXC.png" alt="Campaña Camisetas NOXA" style="width: 100%; border-radius: var(--radius-md); max-height: 380px; object-fit: cover; margin-bottom: 14px;" onerror="this.src='FAVICON NEGRO.png'">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1.15rem; color: var(--brand-black);">
+                "MÁS QUE ROPA, ES ACTITUD."
+              </div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; font-weight: 600;">
+                Contacto: Julio César Restrepo Hernández · NOXA EST. 2024
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 2: BRIEFING EJECUTIVO & OBJETIVOS
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-briefcase"></i> Briefing Oficial</div>
+        <div class="slide-title-wrap">
+          <h2>Briefing de Marketing Digital & Objetivos de Inversión</h2>
+          <p class="slide-subtitle">
+            Plan de adquisición rentable con presupuesto diario asignado, metas de CPA y absorción operativa de Contra Entrega.
+          </p>
+        </div>
+
+        <div class="grid-4" style="margin-bottom: 22px;">
+          <div class="card highlight-dark">
+            <div class="stat-number" style="color:#fff;">$200K</div>
+            <div class="stat-label" style="color:#94a3b8;">Inversión Diaria COP</div>
+            <p style="margin: 8px 0 0 0; font-size: 0.8rem; color:#cbd5e1;">$6.000.000 COP/mes ($190K venta directa + $10K branding).</p>
+          </div>
+          <div class="card">
+            <div class="stat-number">≤ $15K</div>
+            <div class="stat-label">CPA Máximo Objetivo</div>
+            <p style="margin: 8px 0 0 0; font-size: 0.8rem;">Costo por adquisición rentable por cada pedido cerrado y despachado.</p>
+          </div>
+          <div class="card">
+            <div class="stat-number">≥ 7.0x</div>
+            <div class="stat-label">ROAS Proyectado</div>
+            <p style="margin: 8px 0 0 0; font-size: 0.8rem;">Retorno sobre la inversión publicitaria en primera compra de packs.</p>
+          </div>
+          <div class="card">
+            <div class="stat-number">≥ 70%</div>
+            <div class="stat-label">Tasa de Entrega</div>
+            <p style="margin: 8px 0 0 0; font-size: 0.8rem;">Estructura que absorbe y soporta hasta un 30% de devolución contra entrega.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card highlight-subtle">
+            <h4 style="margin-bottom:8px;"><i class="fa-solid fa-crosshairs"></i> Objetivo Principal de Campaña</h4>
+            <p style="font-size:0.85rem; line-height:1.6; margin:0;">
+              Generar un flujo constante y escalable de <strong>ventas directas y pedidos confirmados</strong> a través de Meta Ads (Facebook & Instagram) canalizados al checkout web y a conversaciones de alta conversión en <strong>WhatsApp</strong> (conversión estimada entre 15% y 20% de contactos calificados).
+            </p>
+          </div>
+          <div class="card highlight-subtle">
+            <h4 style="margin-bottom:8px;"><i class="fa-solid fa-award"></i> Objetivos Secundarios de Posicionamiento</h4>
+            <p style="font-size:0.85rem; line-height:1.6; margin:0;">
+              Consolidar a NOXA como la marca de referencia número 1 en moda masculina Big & Tall en Colombia; construir comunidad orgánica en TikTok e Instagram con publicaciones diarias; y afianzar la credibilidad con la política de <em>"abrir y revisar antes de pagar"</em>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 3: BUYER PERSONA & COMPRADOR DUAL
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-users"></i> Público Objetivo</div>
+        <div class="slide-title-wrap">
+          <h2>Perfil del Cliente Ideal & Audiencia Compradora Dual</h2>
+          <p class="slide-subtitle">
+            Hombres corpulentos que compran por necesidad acumulada y parejas que resuelven su vestuario.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Perfil Primario -->
+          <div class="card highlight-dark">
+            <div class="card-icon" style="background:#fff; color:#000;"><i class="fa-solid fa-user-tie"></i></div>
+            <h4 style="color:#fff;">Comprador Primario (El Usuario)</h4>
+            <ul style="padding-left:16px; margin:0; font-size:0.82rem; line-height:1.6; color:#e2e8f0;">
+              <li><strong>Edad:</strong> Hombres de 25 a 55 años.</li>
+              <li><strong>Contextura:</strong> Robusta, ancha o con sobrepeso (tallas XL a 4XL).</li>
+              <li><strong>Poder adquisitivo:</strong> Medio y medio-alto. Valoran durabilidad antes que tendencias efímeras.</li>
+              <li><strong>Patrón de compra:</strong> Necesidad acumulada; compran en packs para abastecerse de 3 a 6 meses.</li>
+            </ul>
+          </div>
+
+          <!-- Compradora Secundaria -->
+          <div class="card">
+            <div class="card-icon outline"><i class="fa-solid fa-gift"></i></div>
+            <h4>Compradora Secundaria (Pareja / Esposa)</h4>
+            <ul style="padding-left:16px; margin:0; font-size:0.82rem; line-height:1.6;">
+              <li><strong>Rol decisor:</strong> Parejas, novias y esposas que conocen la frustración de ellos al vestirse.</li>
+              <li><strong>Motivación de compra:</strong> Quieren verlos bien vestidos, renovarles las camisetas desgastadas y resolverles el problema de forma práctica.</li>
+              <li><strong>Canal clave:</strong> Instagram y WhatsApp buscando regalos útiles con envío sin riesgo.</li>
+            </ul>
+          </div>
+
+          <!-- Geografía & Rutina -->
+          <div class="card">
+            <div class="card-icon outline"><i class="fa-solid fa-map-location-dot"></i></div>
+            <h4>Cobertura Geográfica & Rutina</h4>
+            <ul style="padding-left:16px; margin:0; font-size:0.82rem; line-height:1.6;">
+              <li><strong>Territorio:</strong> Cobertura nacional en Colombia (Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Eje Cafetero).</li>
+              <li><strong>Intereses:</strong> Asados, gastronomía de fin de semana, camionetas/motos, fútbol y UFC.</li>
+              <li><strong>Dolor físico silencioso:</strong> Calor, sudoración y rozaduras dolorosas en la entrepierna.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 4: MAPA MENTAL & VOCABULARIO OBLIGATORIO
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-comment-dots"></i> Código Verbal</div>
+        <div class="slide-title-wrap">
+          <h2>Psicología del Consumidor & Palabras Clave Obligatorias</h2>
+          <p class="slide-subtitle">
+            Reglas no negociables de comunicación: respeto varonil de frente y eliminación absoluta de términos condescendientes.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Palabras Sí -->
+          <div class="card" style="border-top: 4px solid var(--brand-black);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <h4 style="margin:0;"><i class="fa-solid fa-circle-check" style="color:#16a34a;"></i> Palabras que SÍ Deben Usarse</h4>
+              <span class="pill pill-black">Autorizadas</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+              <span class="pill pill-gray">'Tallas reales'</span>
+              <span class="pill pill-gray">'XL a 4XL'</span>
+              <span class="pill pill-gray">'Medidas exactas'</span>
+              <span class="pill pill-gray">'Hombros en su lugar'</span>
+              <span class="pill pill-gray">'Largo perfecto'</span>
+              <span class="pill pill-gray">'Tela que no trasluce'</span>
+              <span class="pill pill-gray">'Anti-roce'</span>
+              <span class="pill pill-gray">'Destapa antes de pagar'</span>
+              <span class="pill pill-gray">'Comodidad sin límites'</span>
+            </div>
+            <p style="font-size:0.82rem; margin:0; color:var(--text-secondary);">
+              Transfieren certeza técnica, transparencia y seguridad en la caída de la prenda.
+            </p>
+          </div>
+
+          <!-- Palabras No -->
+          <div class="card" style="border-top: 4px solid #ef4444; background:#fffbfb;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <h4 style="margin:0; color:#b91c1c;"><i class="fa-solid fa-ban"></i> Palabras Prohibidas (NO Usar)</h4>
+              <span class="pill" style="background:#fee2e2; color:#b91c1c;">Prohibidas</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+              <span class="pill" style="background:#fff; border:1px solid #fca5a5; color:#991b1b;">'Gorditos'</span>
+              <span class="pill" style="background:#fff; border:1px solid #fca5a5; color:#991b1b;">'Rellenitos'</span>
+              <span class="pill" style="background:#fff; border:1px solid #fca5a5; color:#991b1b;">Diminutivos paternalistas</span>
+              <span class="pill" style="background:#fff; border:1px solid #fca5a5; color:#991b1b;">Frases victimistas</span>
+              <span class="pill" style="background:#fff; border:1px solid #fca5a5; color:#991b1b;">Autoayuda forzada</span>
+            </div>
+            <p style="font-size:0.82rem; margin:0; color:#7f1d1d;">
+              El cliente odia que lo traten con conmiseración. Exige prendas de excelente patronaje con el mismo respeto que cualquier otra persona.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 5: FRUSTRACIONES VS SOLUCIÓN TEXTIL
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-ruler"></i> Ingeniería Textil</div>
+        <div class="slide-title-wrap">
+          <h2>Frustraciones del Mercado vs. Solución Real NOXA</h2>
+          <p class="slide-subtitle">
+            Cómo cada punto de dolor crónico se resuelve con patronaje anatómico milimétrico en centímetros.
+          </p>
+        </div>
+
+        <div class="versus-container">
+          <div class="versus-col pain">
+            <h4 style="color:#b91c1c; margin-bottom:14px;"><i class="fa-solid fa-triangle-exclamation"></i> Frustraciones en Tiendas Comunes</h4>
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.83rem;">
+              <div><strong>La humillación en probadores:</strong> Preguntar <em>"¿tienen en mi talla?"</em> y recibir la típica negativa: <em>"de eso solo me queda hasta la L"</em>.</div>
+              <div><strong>Prendas tipo "carpa":</strong> Camisetas comerciales que en XL solo se ensanchan pero quedan cortas, dejando el abdomen al descubierto al sentarse.</div>
+              <div><strong>Telas transparentes de bajo gramaje:</strong> Tejidos delgados que se deforman al primer lavado y marcan cada pliegue corporal.</div>
+              <div><strong>Bóxers que se enrollan:</strong> Tiro corto que rueda por los muslos provocando fricción y quemaduras dolorosas en el día a día.</div>
+            </div>
+          </div>
+
+          <div class="versus-col solution">
+            <h4 style="color:var(--brand-black); margin-bottom:14px;"><i class="fa-solid fa-circle-check"></i> Solución Anatómicamente Diseñada (NOXA)</h4>
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.83rem;">
+              <div><strong>Especialización dedicada:</strong> Tallas reales S a la 4XL con tablas de medidas exactas en centímetros (pecho, largo, hombro).</div>
+              <div><strong>Torso largo inteligente:</strong> Hasta 81 cm de largo en 4XL. Te agachas, manejas o te sientas y la camiseta se mantiene en su sitio.</div>
+              <div><strong>Algodón peinado de alto gramaje:</strong> Tela pesada, fresca y transpirable que ofrece una caída recta varonil que no transparenta.</div>
+              <div><strong>Bóxers antifricción de tiro alto:</strong> Pierna extendida anatómica con elástico suave que sujeta sin cortar la cintura.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 6: LOS 4 COLORES & PACKS COMERCIALES
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-palette"></i> Catálogo Oficial</div>
+        <div class="slide-title-wrap">
+          <h2>Los 4 Colores Esenciales & Ofertas Paquetizadas</h2>
+          <p class="slide-subtitle">
+            Paleta sobria masculina en Negro, Gris, Azul Marino y Blanco combinada con ofertas paquetizadas de alto valor.
+          </p>
+        </div>
+
+        <!-- 4 Garment Cards -->
+        <div class="grid-4" style="margin-bottom: 20px;">
+          <div class="card" style="border-top:4px solid var(--garment-negro); text-align:center; padding:18px;">
+            <div class="swatch-circle swatch-negro" style="margin: 0 auto 10px auto; width:30px; height:30px;"></div>
+            <h4 style="margin:0 0 4px 0;">Negro</h4>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Sobriedad, presencia y máxima elegancia atemporal.</div>
+          </div>
+          <div class="card" style="border-top:4px solid var(--garment-gris); text-align:center; padding:18px;">
+            <div class="swatch-circle swatch-gris" style="margin: 0 auto 10px auto; width:30px; height:30px;"></div>
+            <h4 style="margin:0 0 4px 0;">Gris</h4>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Tono melange versátil para ocasiones casuales.</div>
+          </div>
+          <div class="card" style="border-top:4px solid var(--garment-marino); text-align:center; padding:18px;">
+            <div class="swatch-circle swatch-marino" style="margin: 0 auto 10px auto; width:30px; height:30px;"></div>
+            <h4 style="margin:0 0 4px 0;">Azul Marino</h4>
+            <div style="font-size:0.75rem; color:var(--text-muted);">El clásico masculino por excelencia para el día a día.</div>
+          </div>
+          <div class="card" style="border-top:4px solid #cbd5e1; text-align:center; padding:18px;">
+            <div class="swatch-circle swatch-blanca" style="margin: 0 auto 10px auto; width:30px; height:30px;"></div>
+            <h4 style="margin:0 0 4px 0;">Blanca</h4>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Frescura limpia con alto gramaje que no trasluce.</div>
+          </div>
+        </div>
+
+        <!-- Packs -->
+        <div class="grid-3">
+          <div class="card highlight-dark">
+            <span class="pill pill-gold" style="margin-bottom:8px;">Pack Estrella Camisetas</span>
+            <div class="stat-number" style="color:#fff;">$144.900</div>
+            <h4 style="color:#fff; margin-bottom:6px;">Pack x3 Camisetas Básicas</h4>
+            <p style="font-size:0.8rem; color:#cbd5e1; margin:0;">
+              Colores a elección (Negro, Gris, Marino, Blanco). Tallas S a 4XL. Cuello reforzado indeformable.
+            </p>
+          </div>
+          <div class="card">
+            <span class="pill pill-black" style="margin-bottom:8px;">Pack Esencial Bóxers</span>
+            <div class="stat-number">$99.900</div>
+            <h4 style="margin-bottom:6px;">Pack x6 Bóxers Confort</h4>
+            <p style="font-size:0.8rem; margin:0;">
+              Tiro alto anatómico, microfibra transpirable con algodón y soporte anti-fricción en entrepierna.
+            </p>
+          </div>
+          <div class="card highlight-subtle">
+            <span class="pill pill-gold" style="margin-bottom:8px;">Máximo Ahorro & Reposición</span>
+            <div class="stat-number">$149.900</div>
+            <h4 style="margin-bottom:6px;">Pack x12 Bóxers Prémium</h4>
+            <p style="font-size:0.8rem; margin:0;">
+              NOXA Black Box. Solución semestral completa por solo $12.490 por unidad con Envío Gratis.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 7: BENCHMARK: 3 COMPETIDORES CLAVE (CON REDES & WEB)
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-chart-line"></i> Benchmark Competitivo</div>
+        <div class="slide-title-wrap">
+          <h2>Benchmark Clave: 3 Marcas Referentes (Local, Latam & Global)</h2>
+          <p class="slide-subtitle">
+            Análisis detallado de Gran XL Colombia, Cool Fat Guy (México) y Dog Charlie (Brasil) con acceso directo a sus plataformas.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Gran XL -->
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-gray">🇨🇴 Local D2C</span>
+              <span style="font-size:0.75rem; font-weight:700;">Colombia</span>
+            </div>
+            <h3 style="margin-bottom:4px;">Gran XL Colombia</h3>
+            <p style="font-size:0.8rem; margin-bottom:10px;">Enfoque comercial masivo en tallas XL a 6XL con pago contra entrega.</p>
+            
+            <div style="font-size:0.78rem; line-height:1.5; color:var(--text-secondary); margin-bottom:12px;">
+              <strong>• Aciertos:</strong> Excelente penetración comercial con recaudo contra entrega y videos midiendo sobre el cuerpo.
+              <br><strong>• Debilidades:</strong> Baja consistencia estética, fotos de bodega sin contexto aspiracional.
+            </div>
+
+            <!-- Social Links -->
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/granxlcolombia" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> @granxlcolombia
+              </a>
+              <a href="https://www.tiktok.com/@granxlcolombia" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+            </div>
+          </div>
+
+          <!-- Cool Fat Guy -->
+          <div class="card highlight-subtle">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-gray">🇲🇽 Latam D2C</span>
+              <span style="font-size:0.75rem; font-weight:700;">México</span>
+            </div>
+            <h3 style="margin-bottom:4px;">Cool Fat Guy</h3>
+            <p style="font-size:0.8rem; margin-bottom:10px;">Comunidad urbana y 'body confidence' masculino irreverente.</p>
+            
+            <div style="font-size:0.78rem; line-height:1.5; color:var(--text-secondary); margin-bottom:12px;">
+              <strong>• Aciertos:</strong> Maestría viral en Reels y TikTok; humor que conecta de inmediato con la frustración cotidiana.
+              <br><strong>• Debilidades:</strong> Menor énfasis técnico en costuras y especificaciones milimétricas de medidas.
+            </div>
+
+            <!-- Social Links -->
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/coolfatguyclothing" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> @coolfatguyclothing
+              </a>
+              <a href="https://www.tiktok.com/@coolfatguyclothing" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+              <a href="https://coolfatguy.com" target="_blank" rel="noopener noreferrer" class="social-btn web">
+                <i class="fa-solid fa-globe"></i> Web
+              </a>
+            </div>
+          </div>
+
+          <!-- Dog Charlie -->
+          <div class="card highlight-dark">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-gold">🇧🇷 Referente Global</span>
+              <span style="font-size:0.75rem; font-weight:700; color:#cbd5e1;">Brasil</span>
+            </div>
+            <h3 style="color:#fff; margin-bottom:4px;">Dog Charlie</h3>
+            <p style="font-size:0.8rem; color:#cbd5e1; margin-bottom:10px;">Líder regional de streetwear masculino All Sizes (P al G6).</p>
+            
+            <div style="font-size:0.78rem; line-height:1.5; color:#cbd5e1; margin-bottom:12px;">
+              <strong>• Aciertos:</strong> Estándar editorial altísimo. Modelos reales con barba y tatuajes que proyectan estatus y porte masculino.
+              <br><strong>• Aprendizaje:</strong> El cliente robusto paga prendas prémium si se le brinda caída textil y dignidad.
+            </div>
+
+            <!-- Social Links -->
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/dogcharlie.lab" target="_blank" rel="noopener noreferrer" class="social-btn ig" style="background:#fff; color:#be185d;">
+                <i class="fa-brands fa-instagram"></i> @dogcharlie.lab
+              </a>
+              <a href="https://www.tiktok.com/@dogcharlielab" target="_blank" rel="noopener noreferrer" class="social-btn tk" style="background:#27272a; border-color:#52525b;">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+              <a href="https://www.dogcharlielab.com.br" target="_blank" rel="noopener noreferrer" class="social-btn web" style="background:#fff; color:#1d4ed8;">
+                <i class="fa-solid fa-globe"></i> Web
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 8: BENCHMARK GLOBAL COMPLEMENTARIO (CON REDES & WEB)
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-earth-americas"></i> Radar Internacional</div>
+        <div class="slide-title-wrap">
+          <h2>Benchmark Complementario: USA & Ecosistema Colombia</h2>
+          <p class="slide-subtitle">
+            Innovaciones de producto y modelos de venta directa analizados con enlaces directos a sus perfiles.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <!-- One Bone -->
+          <div class="card">
+            <span class="pill pill-gray" style="margin-bottom:8px;">🇺🇸 USA / Canadá</span>
+            <h4 style="margin:0 0 6px 0;">One Bone Brand</h4>
+            <p style="font-size:0.78rem; line-height:1.45; margin-bottom:12px;">
+              Creadores del corte curvado <strong>'Scoop cut'</strong> que evita que el abdomen quede expuesto al sentarse.
+            </p>
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/onebonebrand" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> @onebonebrand
+              </a>
+              <a href="https://www.tiktok.com/@onebonebrand" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+              <a href="https://onebonebrand.com" target="_blank" rel="noopener noreferrer" class="social-btn web">
+                <i class="fa-solid fa-globe"></i> Web
+              </a>
+            </div>
+          </div>
+
+          <!-- Bearbottom -->
+          <div class="card">
+            <span class="pill pill-gray" style="margin-bottom:8px;">🇺🇸 USA D2C</span>
+            <h4 style="margin:0 0 6px 0;">Bearbottom</h4>
+            <p style="font-size:0.78rem; line-height:1.45; margin-bottom:12px;">
+              Pioneros del modelo <strong>'bundle and save'</strong> y pruebas visuales de extrema elasticidad y resistencia.
+            </p>
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/bearbottomclothing" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <a href="https://www.tiktok.com/@bearbottomclothing" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+              <a href="https://bearbottomclothing.com" target="_blank" rel="noopener noreferrer" class="social-btn web">
+                <i class="fa-solid fa-globe"></i> Web
+              </a>
+            </div>
+          </div>
+
+          <!-- TG Hombres Co -->
+          <div class="card">
+            <span class="pill pill-gray" style="margin-bottom:8px;">🇨🇴 Colombia</span>
+            <h4 style="margin:0 0 6px 0;">TG Hombres Co</h4>
+            <p style="font-size:0.78rem; line-height:1.45; margin-bottom:12px;">
+              Tallas Grandes Hombres Colombia. Venta en combos de camisetas y joggers con tablas de equivalencia.
+            </p>
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/tghombres" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> @tghombres
+              </a>
+              <a href="https://www.tiktok.com/search?q=tghombres" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+            </div>
+          </div>
+
+          <!-- Hombre Grande Store -->
+          <div class="card">
+            <span class="pill pill-gray" style="margin-bottom:8px;">🇨🇴 Colombia</span>
+            <h4 style="margin:0 0 6px 0;">Hombre Grande</h4>
+            <p style="font-size:0.78rem; line-height:1.45; margin-bottom:12px;">
+              Básicos de uso diario en cuello redondo y polos frescas para climas cálidos y templados.
+            </p>
+            <div class="competitor-socials">
+              <a href="https://www.instagram.com/explore/tags/hombregrande/" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <a href="https://www.tiktok.com/search?q=tallas%20grandes%20hombres%20colombia" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 9: SÍNTESIS: QUÉ REPLICAR Y DIFERENCIALES
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-bullseye"></i> Estrategia Diferencial</div>
+        <div class="slide-title-wrap">
+          <h2>Conclusiones del Benchmark: ¿Qué Replicar y Dónde Diferenciarnos?</h2>
+          <p class="slide-subtitle">
+            Aprovechamos las mejores fórmulas del mundo y conquistamos el mercado con nuestros 3 diferenciales únicos.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Qué Replicar -->
+          <div class="card highlight-subtle">
+            <h4 style="margin-bottom:14px;"><i class="fa-solid fa-copy"></i> Lo que Replicamos de los Mejores</h4>
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.85rem;">
+              <div><strong>1. El humor empático de Cool Fat Guy:</strong> Conectar de inmediato con sketches en probadores y situaciones cotidianas en TikTok.</div>
+              <div><strong>2. La estética aspiracional de Dog Charlie:</strong> Fotografía profesional editorial que dignifica la contextura robusta con actitud y porte masculino.</div>
+              <div><strong>3. La venta en combos de Gran XL:</strong> Paquetes de reposición total que aumentan el ticket promedio y justifican la adquisición.</div>
+            </div>
+          </div>
+
+          <!-- Dónde Diferenciarnos -->
+          <div class="card highlight-dark">
+            <h4 style="color:#fff; margin-bottom:14px;"><i class="fa-solid fa-shield-halved"></i> Los 3 Huecos de Mercado que Conquista NOXA</h4>
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.85rem; color:#cbd5e1;">
+              <div><strong style="color:#fff;">1. Destapa antes de pagar:</strong> Reversión absoluta del riesgo; el cliente puede abrir el paquete en su puerta, tocar la tela, verificar la talla y solo entonces pagarle al repartidor.</div>
+              <div><strong style="color:#fff;">2. Tablas en centímetros milimétricos:</strong> Publicación clara de medidas reales de pecho (66-75 cm) y largo (hasta 81 cm) para erradicar el miedo al tallaje reducido.</div>
+              <div><strong style="color:#fff;">3. Ofertas paquetizadas con margen:</strong> $144.900 por 3 camisetas y $149.900 por 12 boxers, dejando el margen operativo necesario para sostener $200.000 COP diarios de pauta con ROAS ≥ 7.0x.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 10: 4 PILARES DE CONTENIDO
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-pie-chart"></i> Contenido</div>
+        <div class="slide-title-wrap">
+          <h2>Estrategia de Contenido: 4 Pilares Psicológicos</h2>
+          <p class="slide-subtitle">
+            Distribución equilibrada entre humor empático, educación técnica, demostración de producto y prueba social.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card highlight-subtle">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+              <span class="pill pill-black" style="font-size:0.85rem;">30%</span>
+            </div>
+            <h4>Empatía & Conexión</h4>
+            <p style="font-size:0.8rem; margin-bottom:10px;">Validar con humor cómplice la frustración de buscar ropa sin caer en el victimismo.</p>
+            <div style="background:#fff; border:1px solid var(--border-light); padding:8px; border-radius:6px; font-size:0.74rem;">
+              <em>"Cuando te dicen: 'Esa talla te queda holgada' vs la realidad."</em>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <div class="card-icon outline"><i class="fa-solid fa-ruler-combined"></i></div>
+              <span class="pill pill-gray" style="font-size:0.85rem;">25%</span>
+            </div>
+            <h4>Educación & Utilidad</h4>
+            <p style="font-size:0.8rem; margin-bottom:10px;">Guías prácticas con cinta métrica, tips para combinar los 4 colores neutros y cuidado textil.</p>
+            <div style="background:var(--bg-surface); padding:8px; border-radius:6px; font-size:0.74rem;">
+              <em>"Cómo medir tu pecho en 30 segundos y acertar tu talla exacta."</em>
+            </div>
+          </div>
+
+          <div class="card highlight-dark">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <div class="card-icon" style="background:#fff; color:#000;"><i class="fa-solid fa-microscope"></i></div>
+              <span class="pill pill-gold" style="font-size:0.85rem;">25%</span>
+            </div>
+            <h4 style="color:#fff;">Autoridad & Producto</h4>
+            <p style="font-size:0.8rem; color:#cbd5e1; margin-bottom:10px;">Tomas macro de costuras reforzadas, pruebas de lavado sin encogimiento y memoria del tejido.</p>
+            <div style="background:#27272a; padding:8px; border-radius:6px; font-size:0.74rem; color:#e2e8f0;">
+              <em>"Prueba de fuego: ¿Qué pasa cuando lavas una camiseta NOXA?"</em>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <div class="card-icon outline"><i class="fa-solid fa-comments"></i></div>
+              <span class="pill pill-gray" style="font-size:0.85rem;">20%</span>
+            </div>
+            <h4>Prueba Social & UGC</h4>
+            <p style="font-size:0.8rem; margin-bottom:10px;">Videos espontáneos de clientes destapando el paquete en la puerta ante el domiciliario.</p>
+            <div style="background:var(--bg-surface); padding:8px; border-radius:6px; font-size:0.74rem;">
+              <em>"Destapando mi pedido NOXA antes de pagarle al repartidor."</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 11: EMBUDO DE PAUTA (META & TIKTOK)
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-bullhorn"></i> Pauta Pagada</div>
+        <div class="slide-title-wrap">
+          <h2>Embudo de Pauta: Meta Ads ($190K Venta + $10K Branding) & TikTok</h2>
+          <p class="slide-subtitle">
+            Arquitectura de tráfico frío (TOFU) y retargeting agresivo (BOFU) con foco en WhatsApp y checkout directo.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card highlight-subtle">
+            <span class="pill pill-black" style="margin-bottom:8px;">TOFU · Tráfico Frío</span>
+            <h4>Meta Ads: Venta Directa</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              Inversión: $190.000 COP diarios orientados a campañas de compra directa en web y conversaciones en WhatsApp.
+            </p>
+            <div style="border-top:1px solid var(--border-light); padding-top:10px; margin-top:10px; font-size:0.78rem;">
+              <strong>Prueba Creativa A/B:</strong>
+              <ul style="padding-left:14px; margin:4px 0 0 0;">
+                <li>Hook de Empatía (Reels): <em>"Si usas XL a 4XL..."</em></li>
+                <li>Anuncio Estático: Packs con precio grande y sellos de Pago Contra Entrega.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card highlight-dark">
+            <span class="pill pill-gold" style="margin-bottom:8px;">BOFU · Retargeting</span>
+            <h4 style="color:#fff;">Retargeting de Confianza</h4>
+            <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5;">
+              Impacto a carritos abandonados e interacciones de los últimos 30 días con el argumento definitivo de venta.
+            </p>
+            <div style="background:#27272a; padding:10px; border-radius:6px; margin-top:10px; font-size:0.78rem; color:#fff;">
+              <em>"Pide hoy sin pagar un solo peso. Destápalo en tu casa y si la calidad o la talla no te convencen, se lo devuelves al repartidor."</em>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="pill pill-gray" style="margin-bottom:8px;">TikTok Ads · Spark Ads</span>
+            <h4>Escala de Videos Virales</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              Potenciar mediante <strong>Spark Ads</strong> los videos orgánicos que logren mayor tiempo de reproducción y guardados.
+            </p>
+            <div style="border-top:1px solid var(--border-light); padding-top:10px; margin-top:10px; font-size:0.78rem;">
+              <strong>Inversión Branding:</strong>
+              <p style="margin:4px 0 0 0;">$10.000 COP diarios asignados a construcción de autoridad y recordación continua.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 12: GUIÓN MAESTRO AIDA
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-clapperboard"></i> Guión de Pauta</div>
+        <div class="slide-title-wrap">
+          <h2>Guión Maestro para Creativos en Video (AIDA)</h2>
+          <p class="slide-subtitle">
+            Estructura de alta conversión de 20 segundos diseñada para Reels y TikTok Ads.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card highlight-dark">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-gold" style="font-weight:900;">A</span>
+              <span style="font-size:0.72rem; color:#94a3b8;">0 - 3 SEGUNDOS</span>
+            </div>
+            <h4 style="color:#fff;">Atención (Hook)</h4>
+            <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5;">
+              <em>"¿Cansado de que las camisetas XL te queden como fajas o se te suban al sentarte y muestren tu abdomen?"</em>
+            </p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-black" style="font-weight:900;">I</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">3 - 8 SEGUNDOS</span>
+            </div>
+            <h4>Interés</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              <em>"En NOXA confeccionamos anatómicamente desde la XL hasta la 4XL. Caída recta, hombros firmes y algodón pesado que no transparenta."</em>
+            </p>
+          </div>
+
+          <div class="card highlight-subtle">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-black" style="font-weight:900;">D</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">8 - 14 SEGUNDOS</span>
+            </div>
+            <h4>Deseo</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              <em>"Aprovecha el Pack de 3 Camisetas por solo $144.900 o 12 Bóxers Antifricción por $149.900 en Negro, Gris, Azul Marino y Blanco."</em>
+            </p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="pill pill-gray" style="font-weight:900;">A</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">14 - 20 SEGUNDOS</span>
+            </div>
+            <h4>Acción (CTA)</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              <em>"Pide con Envío Gratis y Pago Contra Entrega: destapas el paquete en tu casa, verificas la talla y solo entonces pagas. Toca abajo."</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 13: TONO VARONIL & CONTEXTOS REALES
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-fire"></i> Estilo de Vida</div>
+        <div class="slide-title-wrap">
+          <h2>Tono Varonil & Contextos de Uso Cotidianos</h2>
+          <p class="slide-subtitle">
+            Escenarios de vida donde el hombre corpulento valora el confort y la presencia de sus prendas NOXA.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card highlight-subtle">
+            <div class="card-icon outline"><i class="fa-solid fa-utensils"></i></div>
+            <h4>Asados & Gastronomía</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              Asados de fin de semana, cocinar para la familia o amigos. Escenario ideal para mostrar la camiseta en momentos sociales distendidos donde quiere estar cómodo sin sentirse expuesto.
+            </p>
+          </div>
+
+          <div class="card highlight-subtle">
+            <div class="card-icon outline"><i class="fa-solid fa-truck-pickup"></i></div>
+            <h4>Mundo Motor & Conducción</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              Manejo de camionetas, viajes en carretera, mecánica. Ángulo clave de anuncio: <em>"Comodidad absoluta tras 2 horas al volante sin que el elástico del bóxer corte la cintura."</em>
+            </p>
+          </div>
+
+          <div class="card highlight-subtle">
+            <div class="card-icon outline"><i class="fa-solid fa-tv"></i></div>
+            <h4>Deportes como Espectador</h4>
+            <p style="font-size:0.82rem; line-height:1.5;">
+              Reuniones con amigos para ver fútbol, boxeo o peleas de UFC. Ropa fresca de algodón peinado con los 4 colores neutros combinados con jeans o bermudas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 14: COPYS DE ALTA CONVERSIÓN
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-pen-nib"></i> Textos de Pauta</div>
+        <div class="slide-title-wrap">
+          <h2>Copys de Conversión Directa (Listos para Copiar)</h2>
+          <p class="slide-subtitle">
+            Estructuras de texto persuasivo probadas para anuncios de Facebook, Instagram y estados de WhatsApp.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <h4 style="margin:0;"><i class="fa-solid fa-shirt"></i> Copy Pack Camisetas (3x)</h4>
+              <span class="pill pill-black">$144.900</span>
+            </div>
+            <div class="copy-block" id="copyCamisetas">
+              <button class="copy-btn" onclick="copyText('copyCamisetas')"><i class="fa-regular fa-copy"></i> Copiar</button>
+              "Un hombre grande no debería tener que adivinar si una camiseta le va a servir o no. En NOXA diseñamos hombros firmes, mangas a la medida y torso largo para que te muevas, manejes y te sientes sin tener que estirarte la ropa.<br><br>
+              Pide tu pack de 3 en colores esenciales (Negro, Gris, Azul Marino, Blanco), recíbelo en tu casa con Envío Gratis y revisa la calidad antes de pagar."
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <h4 style="margin:0;"><i class="fa-solid fa-box"></i> Copy Pack Bóxers (6x / 12x)</h4>
+              <span class="pill pill-black">$99.900 / $149.900</span>
+            </div>
+            <div class="copy-block" id="copyBoxers">
+              <button class="copy-btn" onclick="copyText('copyBoxers')"><i class="fa-regular fa-copy"></i> Copiar</button>
+              "El problema no son tus piernas, el problema son los boxers con costuras débiles que se enrollan a mitad de mañana y terminan irritando tu entrepierna.<br><br>
+              En NOXA creamos tiro alto y soporte reforzado para que te olvides de la fricción todo el día. Pide tu pack de 6 o 12 bóxers con Envío Gratis y Pago Contra Entrega a todo el país."
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 15: CALENDARIO EDITORIAL NOVIEMBRE 2026
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-calendar"></i> Calendario Mensual</div>
+        <div class="slide-title-wrap">
+          <h2>Calendario Editorial - Noviembre 2026 (Semana a Semana)</h2>
+          <p class="slide-subtitle">
+            30 publicaciones continuas: 16 Reels verticales, 5 Carruseles educativos, 5 Posts de catálogo y 4 Stories interactivas.
+          </p>
+        </div>
+
+        <div class="month-grid">
+          <div class="month-day-head">DOMINGO</div>
+          <div class="month-day-head">LUNES</div>
+          <div class="month-day-head">MARTES</div>
+          <div class="month-day-head">MIÉRCOLES</div>
+          <div class="month-day-head">JUEVES</div>
+          <div class="month-day-head">VIERNES</div>
+          <div class="month-day-head">SÁBADO</div>
+
+          <!-- SEMANA 1 -->
+          <div class="month-day-cell">
+            <div class="day-num"><span>01</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>La típica frase: 'De eso solo me queda hasta la L'</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>02</span> <span style="color:#1d4ed8; font-weight:700;">📑 Carrusel</span></div>
+            <div>Cómo saber tu talla exacta con una cinta métrica</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>03</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Prueba de fuego: ¿Qué pasa al lavar una NOXA?</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>04</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>'Por fin una que no se sube al sentarme' - Testimonio</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>05</span> <span style="color:#7c3aed; font-weight:700;">📱 Storie</span></div>
+            <div>Encuesta: ¿Mayor problema al comprar ropa grande?</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>06</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Anatomía de un boxer que no se enrolla</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>07</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>4 Colores neutros que todo hombre debe tener</div>
+          </div>
+
+          <!-- SEMANA 2 -->
+          <div class="month-day-cell">
+            <div class="day-num"><span>08</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Unboxing real: Destapando el paquete antes de pagar</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>09</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Cuando dicen 'Te queda holgada' vs la realidad</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>10</span> <span style="color:#1d4ed8; font-weight:700;">📑 Carrusel</span></div>
+            <div>Guía NOXA: Diferencias reales XL, 2XL, 3XL, 4XL</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>11</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>Costuras reforzadas: Diseñadas para resistir</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>12</span> <span style="color:#7c3aed; font-weight:700;">📱 Storie</span></div>
+            <div>Clientes que recibieron su pack de 3 camisetas</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>13</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>El baile de acomodarse el boxer en público</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>14</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Look casual de fin de semana con básico NOXA</div>
+          </div>
+
+          <!-- SEMANA 3 -->
+          <div class="month-day-cell">
+            <div class="day-num"><span>15</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>¿Por qué nuestras camisetas no son transparentes?</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>16</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>De la resignación a la seguridad: Historia Andrés</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>17</span> <span style="color:#1d4ed8; font-weight:700;">📑 Carrusel</span></div>
+            <div>Cosas que solo entendemos los de +110 cm de pecho</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>18</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>¿Cómo lavar prendas oscuras para que duren años?</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>19</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Prueba de estiramiento: Elasticidad y memoria</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>20</span> <span style="color:#7c3aed; font-weight:700;">📱 Storie</span></div>
+            <div>Encuesta: ¿Negro, Gris, Azul Marino o Blanca?</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>21</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Revisando el pedido en la puerta de la casa</div>
+          </div>
+
+          <!-- SEMANA 4 -->
+          <div class="month-day-cell">
+            <div class="day-num"><span>22</span> <span style="color:#1d4ed8; font-weight:700;">📑 Carrusel</span></div>
+            <div>El error de comprar una talla más en marcas estándar</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>23</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Detrás de cámaras: Despacho logístico de pedidos</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>24</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>POV: Encuentras una tienda que sí tiene tu talla real</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>25</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>'Compré el pack de 3 y ya pedí los boxers'</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>26</span> <span style="color:#000; font-weight:700;">📸 Post</span></div>
+            <div>Por qué el algodón transpirable evita irritación</div>
+          </div>
+          <div class="month-day-cell" style="background:#f8fafc; border-color:var(--brand-black);">
+            <div class="day-num"><span>27</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div><strong>Black Friday:</strong> 12 Boxers por $149.900</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>28</span> <span style="color:#7c3aed; font-weight:700;">📱 Storie</span></div>
+            <div>Últimos paquetes saliendo para entrega contra entrega</div>
+          </div>
+
+          <!-- SEMANA 5 -->
+          <div class="month-day-cell">
+            <div class="day-num"><span>29</span> <span style="color:#b91c1c; font-weight:700;">🎬 Reel</span></div>
+            <div>Así luce una talla 3XL puesta en movimiento</div>
+          </div>
+          <div class="month-day-cell">
+            <div class="day-num"><span>30</span> <span style="color:#1d4ed8; font-weight:700;">📑 Carrusel</span></div>
+            <div>Garantía NOXA: 30 Días de Satisfacción Total</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 16: PARRILLA TÁCTICA DE 30 DÍAS (TABLA CON FILTROS)
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-table-list"></i> Parrilla Táctica</div>
+        <div class="slide-title-wrap">
+          <h2>Parrilla Táctica de Contenidos (Filtro por Pilar)</h2>
+          <p class="slide-subtitle">
+            Visualizador interactivo de los 30 contenidos con objetivos tácticos y plataformas asignadas.
+          </p>
+        </div>
+
+        <div class="filter-bar">
+          <span style="font-size:0.75rem; color:var(--text-muted); align-self:center; margin-right:4px;">Filtrar por Pilar:</span>
+          <button class="filter-chip active" onclick="filterTable('all')">Todos (30)</button>
+          <button class="filter-chip" onclick="filterTable('Empatía')">Empatía (9)</button>
+          <button class="filter-chip" onclick="filterTable('Educativo')">Educativo (8)</button>
+          <button class="filter-chip" onclick="filterTable('Autoridad')">Autoridad (7)</button>
+          <button class="filter-chip" onclick="filterTable('Testimonial')">Testimonial (6)</button>
+        </div>
+
+        <div class="calendar-wrapper" style="max-height: 420px; overflow-y: auto;">
+          <table class="calendar-table" id="tacticalTable">
+            <thead>
+              <tr>
+                <th style="width: 70px;">Fecha</th>
+                <th style="width: 80px;">Día</th>
+                <th style="width: 120px;">Pilar</th>
+                <th style="width: 90px;">Red</th>
+                <th style="width: 90px;">Formato</th>
+                <th>Título del Contenido</th>
+                <th>Objetivo / Gancho Táctico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-pilar="Empatía"><td>01/11/2026</td><td>Domingo</td><td><span class="pill pill-black">Empatía</span></td><td>TikTok</td><td>Reels</td><td>La típica frase: 'De eso solo me queda hasta la L'</td><td>Sketch cómico identificando la frustración en tiendas físicas.</td></tr>
+              <tr data-pilar="Educativo"><td>02/11/2026</td><td>Lunes</td><td><span class="pill pill-gray">Educativo</span></td><td>Instagram</td><td>Carrusel</td><td>Cómo saber tu talla exacta de camiseta con una cinta métrica</td><td>Explicación de medidas de pecho y largo con la tabla NOXA.</td></tr>
+              <tr data-pilar="Autoridad"><td>03/11/2026</td><td>Martes</td><td><span class="pill pill-black">Autoridad</span></td><td>Todas</td><td>Reels</td><td>Prueba de fuego: ¿Qué pasa cuando lavas una camiseta NOXA?</td><td>Demostración de que la tela no encoge ni pierde el tono.</td></tr>
+              <tr data-pilar="Testimonial"><td>04/11/2026</td><td>Miércoles</td><td><span class="pill pill-gray">Testimonial</span></td><td>FB</td><td>Post</td><td>'Por fin una camiseta que no se me sube al sentarme' - Carlos M.</td><td>Foto de cliente real con testimonio escrito y calificación.</td></tr>
+              <tr data-pilar="Empatía"><td>05/11/2026</td><td>Jueves</td><td><span class="pill pill-black">Empatía</span></td><td>Instagram</td><td>Storie</td><td>Encuesta: ¿Cuál es el mayor problema al comprar ropa grande?</td><td>Interacción con stickers: A) Mangas apretadas B) Cortas C) Transparentan.</td></tr>
+              <tr data-pilar="Autoridad"><td>06/11/2026</td><td>Viernes</td><td><span class="pill pill-black">Autoridad</span></td><td>Todas</td><td>Reels</td><td>Anatomía de un boxer que no se enrolla en los muslos</td><td>Detalle de tiro alto, elástico reforzado y soporte anatómico.</td></tr>
+              <tr data-pilar="Educativo"><td>07/11/2026</td><td>Sábado</td><td><span class="pill pill-gray">Educativo</span></td><td>Instagram</td><td>Post</td><td>4 Colores neutros que todo hombre robusto debe tener</td><td>Presentación de Negro, Gris, Azul Marino y Blanco.</td></tr>
+              <tr data-pilar="Testimonial"><td>08/11/2026</td><td>Domingo</td><td><span class="pill pill-gray">Testimonial</span></td><td>TikTok</td><td>Reels</td><td>Unboxing real: Destapando el paquete antes de pagar</td><td>Video UGC recibiendo al domiciliario con pago contra entrega.</td></tr>
+              <tr data-pilar="Empatía"><td>09/11/2026</td><td>Lunes</td><td><span class="pill pill-black">Empatía</span></td><td>Todas</td><td>Reels</td><td>Cuando te dicen 'Esa talla te queda holgada' vs la realidad</td><td>Humor sobre cortes reducidos en ropa supuestamente XL.</td></tr>
+              <tr data-pilar="Educativo"><td>10/11/2026</td><td>Martes</td><td><span class="pill pill-gray">Educativo</span></td><td>FB</td><td>Carrusel</td><td>Guía NOXA: Diferencias reales entre XL, 2XL, 3XL y 4XL</td><td>Infografía detallando medidas de 66 cm a 75 cm de pecho.</td></tr>
+              <tr data-pilar="Autoridad"><td>11/11/2026</td><td>Miércoles</td><td><span class="pill pill-black">Autoridad</span></td><td>Instagram</td><td>Post</td><td>Costuras reforzadas: Diseñadas para resistir el día a día</td><td>Close-up macro del cuello y terminaciones de mangas.</td></tr>
+              <tr data-pilar="Testimonial"><td>12/11/2026</td><td>Jueves</td><td><span class="pill pill-gray">Testimonial</span></td><td>Instagram</td><td>Storie</td><td>Clientes que recibieron hoy su pack de 3 camisetas</td><td>Capturas de chats de WhatsApp con clientes satisfechos.</td></tr>
+              <tr data-pilar="Empatía"><td>13/11/2026</td><td>Viernes</td><td><span class="pill pill-black">Empatía</span></td><td>TikTok</td><td>Reels</td><td>El baile de acomodarse el boxer en público (y cómo evitarlo)</td><td>Problema común de roce y ajuste resuelto con NOXA.</td></tr>
+              <tr data-pilar="Educativo"><td>14/11/2026</td><td>Sábado</td><td><span class="pill pill-gray">Educativo</span></td><td>Todas</td><td>Reels</td><td>Look casual masculino para el fin de semana con camiseta básica</td><td>Combinación con jean oscuro y calzado casual.</td></tr>
+              <tr data-pilar="Autoridad"><td>15/11/2026</td><td>Domingo</td><td><span class="pill pill-black">Autoridad</span></td><td>FB</td><td>Post</td><td>¿Por qué nuestras camisetas no se vuelven transparentes?</td><td>Explicación del gramaje y densidad de algodón premium.</td></tr>
+              <tr data-pilar="Testimonial"><td>16/11/2026</td><td>Lunes</td><td><span class="pill pill-gray">Testimonial</span></td><td>Todas</td><td>Reels</td><td>De la resignación a la seguridad: La historia de Andrés</td><td>Testimonio sincero sobre volver a vestirse con gusto.</td></tr>
+              <tr data-pilar="Empatía"><td>17/11/2026</td><td>Martes</td><td><span class="pill pill-black">Empatía</span></td><td>Instagram</td><td>Carrusel</td><td>Cosas que solo entendemos los que medimos más de 110 cm de pecho</td><td>Memes y situaciones cotidianas empáticas.</td></tr>
+              <tr data-pilar="Educativo"><td>18/11/2026</td><td>Miércoles</td><td><span class="pill pill-gray">Educativo</span></td><td>FB</td><td>Post</td><td>¿Cómo lavar tus prendas oscuras para que duren años?</td><td>Consejos prácticos de cuidado textil para prendas masculinas.</td></tr>
+              <tr data-pilar="Autoridad"><td>19/11/2026</td><td>Jueves</td><td><span class="pill pill-black">Autoridad</span></td><td>Todas</td><td>Reels</td><td>Prueba de estiramiento: Elasticidad y memoria del tejido</td><td>Tirón en vivo mostrando cómo la prenda regresa a su forma.</td></tr>
+              <tr data-pilar="Empatía"><td>20/11/2026</td><td>Viernes</td><td><span class="pill pill-black">Empatía</span></td><td>Instagram</td><td>Storie</td><td>¿Qué color usas más: Negro, Gris, Marino o Blanca?</td><td>Encuesta interactiva en historias para calentar pedidos.</td></tr>
+              <tr data-pilar="Testimonial"><td>21/11/2026</td><td>Sábado</td><td><span class="pill pill-gray">Testimonial</span></td><td>TikTok</td><td>Reels</td><td>Revisando el pedido en la puerta de la casa</td><td>Demostración de que el cliente inspecciona antes de entregar dinero.</td></tr>
+              <tr data-pilar="Educativo"><td>22/11/2026</td><td>Domingo</td><td><span class="pill pill-gray">Educativo</span></td><td>Instagram</td><td>Carrusel</td><td>El error de comprar una talla más grande en marcas estándar</td><td>Por qué solo se vuelven anchas de cuello y no largas de torso.</td></tr>
+              <tr data-pilar="Autoridad"><td>23/11/2026</td><td>Lunes</td><td><span class="pill pill-black">Autoridad</span></td><td>Todas</td><td>Reels</td><td>Detrás de cámaras: Así despachamos los pedidos NOXA hoy</td><td>Operación logística, empaque cuidado y despacho rápido.</td></tr>
+              <tr data-pilar="Empatía"><td>24/11/2026</td><td>Martes</td><td><span class="pill pill-black">Empatía</span></td><td>TikTok</td><td>Reels</td><td>POV: Cuando encuentras una tienda que sí tiene tu talla real</td><td>Alivio y satisfacción de elegir sin restricciones.</td></tr>
+              <tr data-pilar="Testimonial"><td>25/11/2026</td><td>Miércoles</td><td><span class="pill pill-gray">Testimonial</span></td><td>FB</td><td>Post</td><td>'Compré el pack de 3 y ya pedí los boxers' - Jorge R.</td><td>Prueba social de recompra y fidelización de clientes.</td></tr>
+              <tr data-pilar="Educativo"><td>26/11/2026</td><td>Jueves</td><td><span class="pill pill-gray">Educativo</span></td><td>Instagram</td><td>Post</td><td>Por qué los boxers de algodón transpirable evitan irritaciones</td><td>Beneficio médico/higiénico contra la sudoración y rozaduras.</td></tr>
+              <tr data-pilar="Autoridad"><td>27/11/2026</td><td>Viernes</td><td><span class="pill pill-black">Autoridad</span></td><td>Todas</td><td>Reels</td><td>Pack Black Friday / Promo Especial: 12 Boxers por $149.900</td><td>Llamado a la acción directo con oferta masiva y stock limitado.</td></tr>
+              <tr data-pilar="Empatía"><td>28/11/2026</td><td>Sábado</td><td><span class="pill pill-black">Empatía</span></td><td>Instagram</td><td>Storie</td><td>Últimos paquetes saliendo para entrega contra entrega</td><td>Prisa y escasez en video desde bodega.</td></tr>
+              <tr data-pilar="Testimonial"><td>29/11/2026</td><td>Domingo</td><td><span class="pill pill-gray">Testimonial</span></td><td>Todas</td><td>Reels</td><td>Así luce una talla 3XL puesta en movimiento</td><td>Modelo caminando, sentándose y levantando los brazos.</td></tr>
+              <tr data-pilar="Autoridad"><td>30/11/2026</td><td>Lunes</td><td><span class="pill pill-black">Autoridad</span></td><td>Todas</td><td>Carrusel</td><td>Nuestra Garantía NOXA: 30 Días de Satisfacción Total</td><td>Resumen de políticas: pago al recibir, cambios ágiles y garantía.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 17: GALERÍA DE CREATIVOS & VIDEO IA
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-photo-film"></i> Creativos de Campaña</div>
+        <div class="slide-title-wrap">
+          <h2>Piezas Gráficas Oficiales & Video de Campaña IA</h2>
+          <p class="slide-subtitle">
+            Creativos reales diseñados para anuncios de Meta, TikTok e historias de WhatsApp.
+          </p>
+        </div>
+
+        <div class="grid-2-1">
+          <div class="video-box">
+            <video controls preload="metadata" poster="IMG1-M-08-09-NOXC.png">
+              <source src="MUESTRA VIDEO IA NOXA .mp4" type="video/mp4">
+              Tu navegador no soporta el tag de video HTML5.
+            </video>
+            <div style="padding:12px 16px; background:#ffffff; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light);">
+              <div>
+                <strong style="color:var(--brand-black); font-size:0.88rem;">Video con Inteligencia Artificial NOXA</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Formato vertical 9:16 optimizado para Reels y TikTok Ads</div>
+              </div>
+              <span class="pill pill-black">Video Promocional</span>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div class="card" style="padding:10px;">
+              <img src="IMG3-M-12-09-NOXB.png" alt="Boxers NOXA Pack" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:8px;" onerror="this.src='IMG4-M-12-09-NOXB.png'">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.8rem; font-weight:800; color:var(--brand-black);">Packs Bóxers Confort</span>
+                <span class="pill pill-black">$99.900 / $149.900</span>
+              </div>
+            </div>
+
+            <div class="card" style="padding:10px;">
+              <img src="IMG3-M-08-09-NOXC.png" alt="Camisetas NOXA Pack" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:8px;" onerror="this.src='IMG1-M-08-09-NOXC.png'">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.8rem; font-weight:800; color:var(--brand-black);">3 Camisetas Básicas S-4XL</span>
+                <span class="pill pill-black">$144.900</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 18: ROADMAP & CANALES OFICIALES NOXA
+           ========================================== -->
+      <section data-transition="slide">
+        <div class="slide-badge"><i class="fa-solid fa-flag-checkered"></i> Canales Oficiales</div>
+        <div class="slide-title-wrap">
+          <h2>Hoja de Ruta a 90 Días & Canales Oficiales NOXA</h2>
+          <p class="slide-subtitle">
+            Cronograma secuencial de crecimiento y acceso a los canales oficiales de la marca.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: 22px;">
+          <div class="card highlight-subtle">
+            <span class="pill pill-black" style="margin-bottom:8px;">Mes 1 · Noviembre</span>
+            <h4>Validación & Tracción</h4>
+            <ul style="padding-left:14px; margin:0; font-size:0.8rem; line-height:1.6;">
+              <li>Lanzamiento del calendario editorial orgánico.</li>
+              <li>Pruebas A/B de hooks AIDA en Meta Ads ($200K/día).</li>
+              <li>Optimización del embudo Contra Entrega con WhatsApp.</li>
+              <li>Campaña Black Friday (12 boxers por $149.900).</li>
+            </ul>
+          </div>
+
+          <div class="card highlight-subtle">
+            <span class="pill pill-black" style="margin-bottom:8px;">Mes 2 · Diciembre</span>
+            <h4>Escala Navideña</h4>
+            <ul style="padding-left:14px; margin:0; font-size:0.8rem; line-height:1.6;">
+              <li>Escalar presupuesto en los 2 anuncios ganadores.</li>
+              <li>Spark Ads en TikTok con videos UGC.</li>
+              <li>Secuencia de WhatsApp para venta cruzada (Camisetas ➔ Bóxers).</li>
+              <li>Kits de regalo navideños empacados en NOXA Box.</li>
+            </ul>
+          </div>
+
+          <div class="card highlight-subtle">
+            <span class="pill pill-black" style="margin-bottom:8px;">Mes 3 · Enero</span>
+            <h4>Fidelización & Expansión</h4>
+            <ul style="padding-left:14px; margin:0; font-size:0.8rem; line-height:1.6;">
+              <li>Recolección masiva de reseñas con incentivos.</li>
+              <li>Consolidación del ROAS ≥ 7.0x en primera compra.</li>
+              <li>Lanzamiento del programa de embajadores Big & Tall.</li>
+              <li>Consolidación de las 4 referencias (Negro, Gris, Marino, Blanca).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Canales Oficiales NOXA Card -->
+        <div class="card" style="border: 2px solid var(--brand-black); padding: 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+            <div>
+              <div style="font-family:var(--font-heading); font-size:1.25rem; font-weight:900; color:var(--brand-black);">
+                NOXA · Canales Digitales Oficiales
+              </div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">
+                Contacto Directo: <strong>Julio César Restrepo Hernández</strong>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a href="https://www.instagram.com/noxacolombia" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+                <i class="fa-brands fa-instagram"></i> Instagram (@noxacolombia)
+              </a>
+              <a href="https://www.tiktok.com/@noxacolombia" target="_blank" rel="noopener noreferrer" class="social-btn tk">
+                <i class="fa-brands fa-tiktok"></i> TikTok (@noxacolombia)
+              </a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn web">
+                <i class="fa-brands fa-facebook"></i> Facebook (NOXA Oficial)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- FIXED APP FOOTER -->
+  <footer class="app-footer">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span>Navegar:</span>
+      <span class="key-badge">←</span>
+      <span class="key-badge">→</span>
+      <span class="key-badge">Espacio</span>
+      <span style="margin-left: 8px;">Vista Global:</span>
+      <span class="key-badge">ESC</span>
+      <span style="margin-left: 8px;">Pantalla Completa:</span>
+      <span class="key-badge">F</span>
+    </div>
+    <div>
+      <span>NOXA · Estrategia D2C Big & Tall 2026 - 2027</span>
+    </div>
+  </footer>
+
+  <!-- Reveal.js Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      controls: true,
+      progress: true,
+      center: false,
+      transition: 'slide',
+      backgroundTransition: 'fade',
+      keyboard: true,
+      overview: true,
+      touch: true,
+      loop: false,
+      fragments: true,
+      help: true,
+      mouseWheel: false,
+      hideInactiveCursor: true,
+      hideCursorTime: 3000
+    });
+
+    function toggleJumpMenu() {
+      const menu = document.getElementById('jumpMenu');
+      menu.classList.toggle('open');
+    }
+
+    function jumpTo(index) {
+      Reveal.slide(index, 0);
+      const menu = document.getElementById('jumpMenu');
+      if (menu) menu.classList.remove('open');
+    }
+
+    function toggleHelpModal() {
+      const modal = document.getElementById('helpModal');
+      const overlay = document.getElementById('helpOverlay');
+      modal.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function copyText(elementId) {
+      const block = document.getElementById(elementId);
+      if (!block) return;
+      
+      const clone = block.cloneNode(true);
+      const btn = clone.querySelector('.copy-btn');
+      if (btn) btn.remove();
+      
+      const text = clone.innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const origBtn = block.querySelector('.copy-btn');
+        if (origBtn) {
+          const originalHtml = origBtn.innerHTML;
+          origBtn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Copiado!';
+          origBtn.style.background = '#000';
+          origBtn.style.color = '#fff';
+          setTimeout(() => {
+            origBtn.innerHTML = originalHtml;
+            origBtn.style.background = '';
+            origBtn.style.color = '';
+          }, 2000);
+        }
+      }).catch(err => {
+        console.error('Error al copiar:', err);
+      });
+    }
+
+    function filterTable(pilar) {
+      const chips = document.querySelectorAll('.filter-chip');
+      chips.forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const rows = document.querySelectorAll('#tacticalTable tbody tr');
+      rows.forEach(row => {
+        if (pilar === 'all') {
+          row.style.display = '';
+        } else {
+          const rowPilar = row.getAttribute('data-pilar');
+          if (rowPilar === pilar) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('jumpMenu');
+      const btn = e.target.closest('button');
+      if (menu && menu.classList.contains('open')) {
+        if (!menu.contains(e.target) && (!btn || !btn.innerText.includes('Secciones'))) {
+          menu.classList.remove('open');
+        }
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('helpModal').classList.contains('open')) {
+        toggleHelpModal();
+      }
+    });
+  </script>
+</body>
 </html>

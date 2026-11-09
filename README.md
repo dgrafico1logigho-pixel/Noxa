@@ -28,7 +28,7 @@ Presentación interactiva basada en **Reveal.js** en un único archivo (`index.h
 14. **Calendario Editorial Noviembre 2026:** 30 publicaciones (16 Reels, 5 Carruseles, 5 Posts, 4 Stories).
 15. **Parrilla Táctica Dinámica:** Tabla filtrable en vivo por pilar y formato.
 16. **Galería Oficial & Video IA:** Creativos de campaña y reproductor de video integrado.
-17. **Roadmap a 90 Días & Canales Oficiales:** Contacto directo (Julio César Restrepo Hernández) y redes de NOXA ([Instagram @noxacolombia](https://www.instagram.com/noxacolombia) · [TikTok @noxacolombia](https://www.tiktok.com/@noxacolombia)).
+17. **Roadmap a 90 Días & Canales Oficiales:** Canales digitales oficiales de NOXA ([Instagram @noxashop2026](https://www.instagram.com/noxashop2026/) · [Facebook](https://web.facebook.com/profile.php?id=61587277880615)).
 
 ---
 

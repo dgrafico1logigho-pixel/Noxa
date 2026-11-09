@@ -50,4 +50,4 @@ Presentación interactiva basada en **Reveal.js** en un único archivo (`index.h
 3. En **Build and deployment > Source**, selecciona `Deploy from a branch`.
 4. Elige la rama `main` y la carpeta `/ (root)`.
 5. Haz clic en **Save**. En un par de minutos tu presentación estará activa en:  
-   👉 **`https://dgrafico1logigho-pixel.github.io/Noxa/`**
+   👉 **`https://restrejc-ux.github.io/Noxa/`**
